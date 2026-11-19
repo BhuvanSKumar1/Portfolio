@@ -56,14 +56,14 @@ const Navbar: React.FC = () => {
           Bhuvan S Kumar
         </div>
         {/* Desktop links */}
-        <ul className="hidden lg:flex space-x-6">
+        <ul className="hidden lg:flex space-x-8">
           {navLinks.map((link) => {
             const Icon = link.icon;
             const isActive = activeId === link.id;
             return (
               <li key={link.id} className="relative">
                 <motion.button
-                  className={`flex items-center space-x-1 text-heading transition ${isActive ? 'text-accent-violet' : ''}`}
+                  className={`flex items-center space-x-1 text-heading transition hover:text-accent-violet ${isActive ? 'text-accent-violet' : ''}`}
                   onClick={() => scrollTo(link.id)}
                   whileHover={reduced ? undefined : { y: -2, scale: 1.02 }}
                   whileTap={reduced ? undefined : { scale: 0.95 }}
@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
                 return (
                   <li key={link.id}>
                     <motion.button
-                      className={`flex items-center space-x-2 w-full text-left text-foreground transition ${isActive ? 'text-accent-violet' : ''}`}
+                      className={`flex items-center space-x-2 w-full text-left text-foreground transition hover:text-accent-violet ${isActive ? 'text-accent-violet' : ''}`}
                       onClick={() => scrollTo(link.id)}
                       whileHover={reduced ? undefined : { y: -2, scale: 1.02 }}
                       whileTap={reduced ? undefined : { scale: 0.95 }}

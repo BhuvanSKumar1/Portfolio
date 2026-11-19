@@ -19,14 +19,14 @@ module.exports = {
         "heading": "#111827", // dark charcoal for headings
         "secondary": "#4B5563", // secondary text
         "highlight": "#5B21B6", // rich violet for specialization
-      },,
+      },
       fontFamily: {
         sans: ["'Inter'", "system-ui", "sans-serif"],
         "foreground": "#374151", // dark gray for body text
         "heading": "#111827", // dark charcoal for headings
         "secondary": "#4B5563", // secondary text
         "highlight": "#5B21B6", // rich violet for specialization
-      },,
+      },
     },
   },
   plugins: [],

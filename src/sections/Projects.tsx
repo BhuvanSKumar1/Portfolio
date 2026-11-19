@@ -29,21 +29,16 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   return (
     <motion.div
       onClick={() => onSelect(project)}
-      className="group bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 flex flex-col h-full hover:border-accent-violet/60 hover:ring-2 hover:ring-accent-violet/40 transition-all duration-300 cursor-pointer hover:shadow-[0_0_30px_rgba(139,92,246,0.25)] relative overflow-hidden"
-      whileHover={{ y: -6, scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      className="group bg-white/5 backdrop-blur-md border border-violet-600 rounded-2xl p-6 flex flex-col h-full hover:border-blue-500 hover:ring-2 hover:ring-accent-violet/40 transition-all duration-250 cursor-pointer hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] relative overflow-hidden motion-reduce:transform-none motion-reduce:transition-none"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.25 }}
     >
-      {/* View Details Indicator */}
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-xs font-semibold tracking-wider text-accent-violet group-hover:text-violet-300 transition-colors uppercase flex items-center gap-1">
-          VIEW DETAILS ↗
+      {/* Featured Badge */}
+      {project.featured && (
+        <span className="text-xs px-2.5 py-0.5 rounded-full bg-accent-violet/20 text-accent-violet border border-accent-violet/30 font-medium self-start mb-2">
+          Featured
         </span>
-        {project.featured && (
-          <span className="text-xs px-2.5 py-0.5 rounded-full bg-accent-violet/20 text-accent-violet border border-accent-violet/30 font-medium">
-            Featured
-          </span>
-        )}
-      </div>
+      )}
 
       {/* Project Image */}
       {project.image ? (
@@ -51,11 +46,14 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="w-full h-48 object-cover rounded-xl mb-5 transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-48 object-cover rounded-xl mb-5 transition-transform duration-250 group-hover:scale-[1.03] motion-reduce:transform-none"
         />
       ) : (
         <div className="w-full h-48 bg-white/5 rounded-xl mb-5 flex items-center justify-center text-foreground/40 border border-white/5">
-          Project Preview
+          {project.id === 'realmeta' && <Database size={32} className="text-accent-violet/60" />}
+          {project.id === 'smart-grid' && <Cpu size={32} className="text-accent-violet/60" />}
+          {project.id === 'karmic-canteen' && <Server size={32} className="text-accent-violet/60" />}
+          {project.id === 'talentiq' && <Laptop size={32} className="text-accent-violet/60" />}
         </div>
       )}
 
@@ -77,45 +75,38 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
         </p>
       )}
 
-      {/* Technologies */}
-      <div className="flex flex-wrap gap-2 mb-6">
-        {project.technologies.map((tech) => (
-          <span
-            key={tech}
-            className="flex items-center gap-1 text-xs px-3 py-1.5 bg-accent-violet/10 border border-accent-violet/20 rounded-full text-foreground/80"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
+      {/* View Details and Links Wrapper */}
+      <div className="mt-auto">
+        <button className="flex items-center gap-2 self-start mb-2 h-10 px-4 text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-blue-500 rounded-md transition-all duration-250 hover:brightness-110 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 motion-reduce:transition-none">
+          View Details <ExternalLink size={14} className="ml-1" />
+        </button>
+        <div className="flex flex-wrap gap-4 pt-2 border-t border-white/5">
+          {project.github && project.github !== '#' && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-sm font-medium text-foreground hover:text-accent-violet transition-colors z-10 flex items-center gap-1"
+            >
+              <GithubIcon size={15} />
+              GitHub Repository →
+            </a>
+          )}
 
-      {/* Project Links */}
-      <div className="mt-auto flex flex-wrap gap-4 pt-2 border-t border-white/5">
-        {project.github && project.github !== '#' && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="text-sm font-medium text-foreground hover:text-accent-violet transition-colors z-10 flex items-center gap-1"
-          >
-            <GithubIcon size={15} />
-            GitHub Repository →
-          </a>
-        )}
-
-        {project.live && project.live !== '#' && (
-          <a
-            href={project.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-blue transition-colors z-10"
-          >
-            Live Demo
-            <ExternalLink size={16} />
-          </a>
-        )}
+          {project.live && project.live !== '#' && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="inline-flex items-center gap-2 text-sm font-medium text-foreground hover:text-accent-blue transition-colors z-10"
+            >
+              Live Demo
+              <ExternalLink size={16} />
+            </a>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -208,7 +199,7 @@ const Projects = () => {
               initial={{ scale: 0.95, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.25 }}
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header / Banner Area */}
@@ -221,8 +212,11 @@ const Projects = () => {
                   />
                 ) : (
                   <div className="flex flex-col items-center justify-center text-foreground/40 gap-2">
-                    <Laptop size={44} className="text-accent-violet/60" />
-                    <span className="text-sm font-medium">Project Banner & Preview</span>
+                    {selectedProject.id === 'realmeta' && <Database size={44} className="text-accent-violet/60" />}
+                    {selectedProject.id === 'smart-grid' && <Cpu size={44} className="text-accent-violet/60" />}
+                    {selectedProject.id === 'karmic-canteen' && <Server size={44} className="text-accent-violet/60" />}
+                    {selectedProject.id === 'talentiq' && <Laptop size={44} className="text-accent-violet/60" />}
+                    <span className="text-sm font-medium">Project Preview</span>
                   </div>
                 )}
 
@@ -231,7 +225,7 @@ const Projects = () => {
                   type="button"
                   aria-label="Close project details"
                   onClick={() => setSelectedProject(null)}
-                  className="absolute top-4 right-4 p-2.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 text-foreground hover:text-accent-violet transition-colors z-20"
+                  className="absolute top-4 right-4 p-3 rounded-full bg-gray-900 border border-violet-500 text-white hover:bg-red-600 hover:border-red-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white transition-colors z-20"
                 >
                   <X size={20} />
                 </button>
@@ -243,11 +237,11 @@ const Projects = () => {
                     aria-label="Previous project"
                     onClick={(e) => {
                       e.stopPropagation();
-                      const currentIdx = projects.findIndex(p => p.id === selectedProject.id);
+                      const currentIdx = projects.findIndex((p) => p.id === selectedProject.id);
                       const prev = projects[(currentIdx - 1 + projects.length) % projects.length];
                       setSelectedProject(prev);
                     }}
-                    className="p-1.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 text-foreground hover:text-accent-violet transition-colors"
+                    className="p-2 rounded-full bg-accent-violet/80 hover:bg-accent-violet/90 border border-violet-300 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                   >
                     <ArrowLeft size={18} />
                   </button>
@@ -256,11 +250,11 @@ const Projects = () => {
                     aria-label="Next project"
                     onClick={(e) => {
                       e.stopPropagation();
-                      const currentIdx = projects.findIndex(p => p.id === selectedProject.id);
+                      const currentIdx = projects.findIndex((p) => p.id === selectedProject.id);
                       const next = projects[(currentIdx + 1) % projects.length];
                       setSelectedProject(next);
                     }}
-                    className="p-1.5 rounded-full bg-black/60 hover:bg-black/90 border border-white/20 text-foreground hover:text-accent-violet transition-colors"
+                    className="p-2 rounded-full bg-accent-violet/80 hover:bg-accent-violet/90 border border-violet-300 text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
                   >
                     <ArrowRight size={18} />
                   </button>
@@ -277,10 +271,10 @@ const Projects = () => {
               {/* Scrollable Content */}
               <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
                 <div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
                     {selectedProject.title}
                   </h3>
-                  <p className="text-foreground/80 leading-relaxed text-base sm:text-lg">
+                  <p className="text-[#E5E7EB] leading-relaxed text-base sm:text-lg">
                     {selectedProject.description}
                   </p>
                 </div>
@@ -288,17 +282,19 @@ const Projects = () => {
                 {/* Key Features */}
                 {selectedProject.keyFeatures && selectedProject.keyFeatures.length > 0 && (
                   <div>
-                    <h4 className="text-lg font-semibold text-foreground mb-3 text-violet-300">
+                    <h4 className="text-lg font-semibold text-[#C4B5FD] mb-3">
                       Key Features
                     </h4>
-                    <ul className="grid gap-2.5 sm:grid-cols-2">
+                    <ul className="grid gap-4 md:grid-cols-2">
                       {selectedProject.keyFeatures.map((feature, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start gap-2.5 text-sm text-foreground/80 bg-white/5 p-3 rounded-xl border border-white/5"
+                          className="bg-black/40 backdrop-blur-sm border border-violet-300/30 rounded-xl p-4 hover:bg-black/50 transition-colors"
                         >
-                          <CheckCircle2 size={18} className="text-accent-violet shrink-0 mt-0.5" />
-                          <span>{feature}</span>
+                          <div className="flex items-center gap-2">
+                            <CheckCircle2 size={16} className="text-violet-300 shrink-0" />
+                            <p className="font-bold text-white">{feature}</p>
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -308,7 +304,7 @@ const Projects = () => {
                 {/* Role / Contribution */}
                 {selectedProject.role && (
                   <div>
-                    <h4 className="text-lg font-semibold text-foreground mb-2 text-violet-300">
+                    <h4 className="text-lg font-semibold text-[#C4B5FD] mb-2">
                       My Contribution
                     </h4>
                     <p className="text-sm sm:text-base text-foreground/80 leading-relaxed bg-accent-violet/10 p-4 rounded-xl border border-accent-violet/30">
@@ -319,14 +315,14 @@ const Projects = () => {
 
                 {/* Technology Stack */}
                 <div>
-                  <h4 className="text-lg font-semibold text-foreground mb-3 text-violet-300">
+                  <h4 className="text-lg font-semibold text-[#C4B5FD] mb-3">
                     Technology Stack
                   </h4>
                   <div className="flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="flex items-center gap-1 text-xs px-3.5 py-2 bg-accent-violet/15 border border-accent-violet/30 rounded-xl text-foreground font-medium"
+                        className="flex items-center gap-1 text-xs px-3.5 py-2 bg-accent-violet/15 border border-accent-violet/30 rounded-xl text-white font-medium"
                       >
                         {getTechIcon(tech)}
                         {tech}
@@ -342,7 +338,7 @@ const Projects = () => {
                       href={selectedProject.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-foreground text-sm font-semibold transition-colors"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white text-sm font-semibold transition-colors"
                     >
                       <GithubIcon size={17} />
                       View on GitHub
@@ -364,7 +360,7 @@ const Projects = () => {
                   <button
                     type="button"
                     onClick={() => setSelectedProject(null)}
-                    className="ml-auto px-5 py-2.5 rounded-xl border border-white/15 hover:bg-white/5 text-foreground/70 hover:text-foreground text-sm font-medium transition-colors"
+                    className="ml-auto px-5 py-2.5 rounded-xl border border-white/15 hover:bg-white/5 text-white hover:text-white text-sm font-medium transition-colors"
                   >
                     Close
                   </button>
