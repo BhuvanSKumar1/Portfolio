@@ -14,22 +14,22 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-gradient-to-r from-[#1E1B4B] to-[#6D28D9] border-t border-white/10 py-10 overflow-hidden text-foreground">
+    <footer className="relative bg-gradient-to-r from-[#1E1B4B] to-[#6D28D9] border-t border-white/10 py-8 sm:py-10 overflow-hidden text-foreground">
       {/* Background glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-accent-violet/10 blur-[100px] pointer-events-none" />
 
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8 }}
       >
         {/* Layout: three balanced columns */}
-        <div className="grid md:grid-cols-3 gap-12 items-start text-center md:text-left">
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-12 items-start text-center md:text-left">
           {/* Left column: name, subtitle, description */}
           <div>
-            <p className="font-bold text-2xl text-white">Bhuvan S Kumar</p>
+            <p className="font-bold text-xl sm:text-2xl text-white">Bhuvan S Kumar</p>
             <p className="text-sm text-white/70 mt-1">Software Engineer</p>
             <p className="text-sm text-[#E0D0FF] mt-1">Building intelligent solutions through code, data and technology.</p>
 
@@ -39,10 +39,10 @@ const Footer = () => {
 
           {/* Center column: quick navigation */}
           <nav className="flex flex-col md:items-center gap-2 text-sm text-white/70">
-            <a href="#home" className="hover:text-accent-violet transition-colors">Home</a>
-            <a href="#about" className="hover:text-accent-violet transition-colors">About</a>
-            <a href="#skills" className="hover:text-accent-violet transition-colors">Skills</a>
-            <a href="#projects" className="hover:text-accent-violet transition-colors">Projects</a>
+            <a href="#home" className="py-2 min-h-[44px] flex items-center hover:text-accent-violet transition-colors">Home</a>
+            <a href="#about" className="py-2 min-h-[44px] flex items-center hover:text-accent-violet transition-colors">About</a>
+            <a href="#skills" className="py-2 min-h-[44px] flex items-center hover:text-accent-violet transition-colors">Skills</a>
+            <a href="#projects" className="py-2 min-h-[44px] flex items-center hover:text-accent-violet transition-colors">Projects</a>
             <a href="#experience" className="hover:text-accent-violet transition-colors">Experience</a>
             <a href="#contact" className="hover:text-accent-violet transition-colors">Contact</a>
           </nav>
@@ -52,17 +52,17 @@ const Footer = () => {
             <p className="font-semibold text-white mb-2">Connect With Me</p>
             <div className="flex gap-4">
               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"
-                className="p-3 rounded-full bg-accent-violet/20 border border-white/20 hover:bg-accent-violet hover:text-white transition-colors flex items-center">
+                className="p-4 rounded-full bg-accent-violet/20 border border-white/20 hover:bg-accent-violet hover:text-white transition-colors flex items-center min-w-[44px] min-h-[44px]">
                 <GithubIcon size={24} />
                 <span className="ml-2 text-sm text-white">GitHub</span>
               </a>
               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
-                className="p-3 rounded-full bg-accent-violet/20 border border-white/20 hover:bg-accent-violet hover:text-white transition-colors flex items-center">
+                className="p-4 rounded-full bg-accent-violet/20 border border-white/20 hover:bg-accent-violet hover:text-white transition-colors flex items-center min-w-[44px] min-h-[44px]">
                 <LinkedinIcon size={24} />
                 <span className="ml-2 text-sm text-white">LinkedIn</span>
               </a>
               <a href={"mailto:" + personalInfo.email} aria-label="Email"
-                className="p-3 rounded-full bg-accent-violet/20 border border-white/20 hover:bg-accent-violet hover:text-white transition-colors flex items-center">
+                className="p-4 rounded-full bg-accent-violet/20 border border-white/20 hover:bg-accent-violet hover:text-white transition-colors flex items-center min-w-[44px] min-h-[44px]">
                 <Mail size={24} />
                 <span className="ml-2 text-sm text-white">Email</span>
               </a>
@@ -76,7 +76,7 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={scrollTop}
-            className="p-3 rounded-full bg-accent-violet text-white hover:bg-accent-blue transition-all duration-300"
+            className="p-4 rounded-full bg-accent-violet text-white hover:bg-accent-blue transition-all duration-300 min-w-[44px] min-h-[44px]"
             aria-label="Back to Top"
           >
             <ArrowUp size={24} />

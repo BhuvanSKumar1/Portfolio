@@ -82,9 +82,9 @@ const Skills: React.FC = () => {
   const lastTwo = skillItems.slice(6);
 
   return (
-    <section id="skills" className="py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 bg-opacity-30">
+    <section id="skills" className="py-12 sm:py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 bg-opacity-30">
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 sm:px-6"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -126,7 +126,7 @@ const Skills: React.FC = () => {
             return (
               <motion.div
                 key={idx}
-                className="bg-purple-900/30 backdrop-blur-md rounded-xl p-6 flex flex-col items-center text-center border border-white/20 shadow-lg group hover:ring-2 hover:ring-accent-violet/40 transition-all duration-300"
+                className="bg-purple-900/30 backdrop-blur-md rounded-xl p-4 sm:p-6 flex flex-col items-center text-center border border-white/20 shadow-lg group hover:ring-2 hover:ring-accent-violet/40 transition-all duration-300 min-h-[180px]"
                 whileHover={hoverEffect}
                 whileTap={{ scale: 0.95 }}
                 variants={fadeUp}
@@ -151,7 +151,7 @@ const Skills: React.FC = () => {
             return (
               <motion.div
                 key={idx + 6}
-                className="bg-purple-900/30 backdrop-blur-md rounded-xl p-6 flex flex-col items-center text-center border border-white/20 shadow-lg group hover:ring-2 hover:ring-accent-violet/40 transition-all duration-300"
+                className="bg-purple-900/30 backdrop-blur-md rounded-xl p-4 sm:p-6 flex flex-col items-center text-center border border-white/20 shadow-lg group hover:ring-2 hover:ring-accent-violet/40 transition-all duration-300 min-h-[180px]"
                 whileHover={hoverEffect}
                 whileTap={{ scale: 0.95 }}
                 variants={fadeUp}

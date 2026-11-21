@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 lg:px-8">
         {/* Logo / name */}
-        <div className="text-2xl font-bold text-foreground cursor-pointer" onClick={() => scrollTo('home')}>
+        <div className="text-xl sm:text-2xl font-bold text-foreground cursor-pointer max-w-[140px] truncate" onClick={() => scrollTo('home')}>
           Bhuvan S Kumar
         </div>
         {/* Desktop links */}
@@ -82,7 +82,7 @@ const Navbar: React.FC = () => {
           })}
         </ul>
         {/* Mobile menu button */}
-        <button className="lg:hidden text-foreground" onClick={() => setIsOpen((prev) => !prev)} aria-label="Menu">
+        <button className="lg:hidden text-foreground p-2 min-w-[44px] min-h-[44px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-violet" onClick={() => setIsOpen(prev => !prev)} aria-label="Menu" aria-expanded={isOpen}>
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -95,14 +95,14 @@ const Navbar: React.FC = () => {
             exit={{ height: 0, opacity: 0 }}
             className="lg:hidden bg-white/10 backdrop-blur-md border-t border-white/20"
           >
-            <ul className="flex flex-col space-y-2 p-4">
+            <ul className="flex flex-col space-y-4 p-4">
               {navLinks.map((link) => {
                 const Icon = link.icon;
                 const isActive = activeId === link.id;
                 return (
                   <li key={link.id}>
                     <motion.button
-                      className={`flex items-center space-x-2 w-full text-left text-foreground transition hover:text-accent-violet ${isActive ? 'text-accent-violet' : ''}`}
+                      className={`flex items-center space-x-2 w-full text-left text-foreground transition hover:text-accent-violet focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-violet ${isActive ? 'text-accent-violet' : ''}`}
                       onClick={() => scrollTo(link.id)}
                       whileHover={reduced ? undefined : { y: -2, scale: 1.02 }}
                       whileTap={reduced ? undefined : { scale: 0.95 }}

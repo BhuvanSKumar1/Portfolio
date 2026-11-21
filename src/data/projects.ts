@@ -69,7 +69,7 @@ export const projects: Project[] = [
     ],
     featured: true,
     github: '#',
-    live: '#',
+    live: 'https://karmic-canteen-web.vercel.app/',
     role: 'Working on the integration of IoT hardware, energy monitoring, data processing, and machine learning‑based optimization for the smart‑grid prototype.',
     keyFeatures: [
       'Real-time MQTT energy telemetry.',
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     technologies: ['React.js', 'Vite', 'Node.js', 'Express.js', 'Firebase Authentication', 'Cloud Firestore', 'Python', 'CSS'],
     achievement: 'Second Prize – Madhwa Hackathon',
     github: '#',
-    live: '#',
+    live: 'https://karmic-canteen-web.vercel.app/',
     role: 'Developed the web application, integrated Firebase services, and implemented the meal‑tracking workflow.',
     keyFeatures: [
       'Super Admin dashboard with analytics.',

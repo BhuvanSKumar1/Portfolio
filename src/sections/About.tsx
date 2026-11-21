@@ -27,16 +27,16 @@ const highlights = [
 const About = () => {
   const shouldReduce = useReducedMotion();
   return (
-    <section id="about" className="py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
+    <section id="about" className="py-12 sm:py-16 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900">
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 sm:px-6"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerStagger}
       >
         {/* Heading */}
-        <motion.h2 className="text-4xl lg:text-5xl font-bold text-center text-white mb-8" variants={fadeUp}>
+        <motion.h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-white mb-8" variants={fadeUp}>
           About Me
         </motion.h2>
 
@@ -52,7 +52,7 @@ const About = () => {
 
         {/* Highlight cards */}
         <motion.div
-          className="grid gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-3 max-w-5xl mx-auto"
+          className="grid gap-x-6 gap-y-8 grid-cols-1 sm:grid-cols-3 max-w-5xl mx-auto"
           variants={containerStagger}
           initial="hidden"
           whileInView="visible"

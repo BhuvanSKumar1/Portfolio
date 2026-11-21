@@ -1,28 +1,28 @@
 // src/sections/Experience.tsx
 import { motion } from 'framer-motion';
 import { containerStagger } from '../utils/scrollVariants';
-import { Users, Award, Code } from 'lucide-react';
+import { Users, Award, Code, Trophy } from 'lucide-react';
 
 
 
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-16 bg-gray-900">
+    <section id="experience" className="py-12 sm:py-16 bg-gray-900">
       <motion.div
-        className="container mx-auto px-4"
+        className="container mx-auto px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         variants={containerStagger}
       >
-        <h2 className="text-3xl lg:text-4xl font-bold text-center text-white mb-12">
+        <h2 className="text-3xl sm:text-4xl lg:text-4xl font-bold text-center text-white mb-12">
           Experience &amp; Achievements
         </h2>
 
         {/* Experience & Leadership - vertical timeline */}
         <h3 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-[#C4B5FD] mb-6">Experience & Leadership</h3>
-        <div className="relative ml-8">
+        <div className="relative ml-4 sm:ml-8">
           {/* vertical line */}
           <div className="absolute left-0 top-0 w-0.5 bg-violet-500 h-full"></div>
         
@@ -30,7 +30,7 @@ const Experience = () => {
 
           {/* first entry */}
           <motion.div
-            className="flex items-start mb-12 pl-8 relative group"
+            className="flex items-start mb-12 pl-4 sm:pl-8 relative group"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -56,7 +56,7 @@ const Experience = () => {
 
           {/* second entry */}
           <motion.div
-            className="flex items-start mb-12 pl-8 relative group"
+            className="flex items-start mb-12 pl-4 sm:pl-8 relative group"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}

@@ -78,18 +78,18 @@ const Contact = () => {
 
 
   return (
-    <section id="contact" className="relative py-24 bg-bg-primary overflow-hidden">
+    <section id="contact" className="relative py-12 sm:py-16 bg-bg-primary overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-10 left-0 w-72 h-72 bg-accent-violet/10 blur-[120px] pointer-events-none" />
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8 }}
       >
         {/* Heading */}
-        <h2 className="text-3xl lg:text-5xl font-bold text-center text-[#6D28D9] mb-6">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-[#6D28D9] mb-6">
           Contact
         </h2>
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-violet-500 to-blue-500 opacity-75 rounded" />
@@ -105,7 +105,7 @@ const Contact = () => {
         <div className="grid gap-8 grid-cols-1 md:grid-cols-2 items-start">
           {/* Contact Information */}
           <motion.div
-            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 flex flex-col gap-8"
+            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-4 sm:p-6 flex flex-col gap-8"
             whileHover={{ y: -4 }}
             transition={{ duration: 0.3 }}
           >

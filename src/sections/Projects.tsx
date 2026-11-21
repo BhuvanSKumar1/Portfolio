@@ -29,7 +29,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
   return (
     <motion.div
       onClick={() => onSelect(project)}
-      className="group bg-white/5 backdrop-blur-md border border-violet-600 rounded-2xl p-6 flex flex-col h-full hover:border-blue-500 hover:ring-2 hover:ring-accent-violet/40 transition-all duration-250 cursor-pointer hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] relative overflow-hidden motion-reduce:transform-none motion-reduce:transition-none"
+      className="group bg-white/5 backdrop-blur-md border border-violet-600 rounded-2xl p-4 sm:p-6 flex flex-col h-full hover:border-blue-500 hover:ring-2 hover:ring-accent-violet/40 transition-all duration-250 cursor-pointer hover:shadow-[0_0_20px_rgba(139,92,246,0.6)] relative overflow-hidden motion-reduce:transform-none motion-reduce:transition-none"
       whileHover={{ y: -5 }}
       transition={{ duration: 0.25 }}
     >
@@ -46,7 +46,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
           src={project.image}
           alt={project.title}
           loading="lazy"
-          className="w-full h-48 object-cover rounded-xl mb-5 transition-transform duration-250 group-hover:scale-[1.03] motion-reduce:transform-none"
+          className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-xl mb-5 transition-transform duration-250 group-hover:scale-[1.03] motion-reduce:transform-none"
         />
       ) : (
         <div className="w-full h-48 bg-white/5 rounded-xl mb-5 flex items-center justify-center text-foreground/40 border border-white/5">
@@ -58,12 +58,12 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
       )}
 
       {/* Project Title */}
-      <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-accent-violet transition-colors">
+      <h3 className="text-lg sm:text-xl font-bold text-foreground mb-3 group-hover:text-accent-violet transition-colors">
         {project.title}
       </h3>
 
       {/* Description */}
-      <p className="text-foreground/70 leading-relaxed flex-grow mb-4">
+      <p className="text-base sm:text-lg text-foreground/70 leading-relaxed flex-grow mb-4">
         {project.description}
       </p>
 
@@ -77,7 +77,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
 
       {/* View Details and Links Wrapper */}
       <div className="mt-auto">
-        <button className="flex items-center gap-2 self-start mb-2 h-10 px-4 text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-blue-500 rounded-md transition-all duration-250 hover:brightness-110 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 motion-reduce:transition-none">
+        <button className="flex items-center gap-2 self-start mb-2 min-h-[44px] px-4 py-2 rounded-md text-sm font-medium text-white bg-gradient-to-r from-violet-600 to-blue-500 transition-all duration-250 hover:brightness-110 hover:shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 motion-reduce:transition-none">
           View Details <ExternalLink size={14} className="ml-1" />
         </button>
         <div className="flex flex-wrap gap-4 pt-2 border-t border-white/5">
@@ -87,7 +87,7 @@ const ProjectCard = ({ project, onSelect }: ProjectCardProps) => {
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="text-sm font-medium text-foreground hover:text-accent-violet transition-colors z-10 flex items-center gap-1"
+              className="text-sm font-medium text-foreground hover:text-accent-violet transition-colors z-10 flex items-center gap-1 py-2 px-3"
             >
               <GithubIcon size={15} />
               GitHub Repository →
@@ -145,7 +145,7 @@ const Projects = () => {
       <div className="absolute top-20 right-0 w-72 h-72 bg-accent-violet/10 blur-[120px] pointer-events-none" />
 
       <motion.div
-        className="relative z-10 max-w-7xl mx-auto px-6"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}

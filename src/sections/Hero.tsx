@@ -16,7 +16,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-bg-primary px-6 py-24"
+      className="relative min-h-screen flex items-center overflow-hidden bg-bg-primary px-4 py-12 sm:px-6 sm:py-20 lg:px-6 lg:py-24"
     >
       {/* Background glow effects */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-accent-violet/20 rounded-full blur-[120px] pointer-events-none" />
@@ -102,13 +102,13 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <p className="text-accent-violet font-semibold tracking-[0.25em] uppercase mb-4">
+          <p className="text-accent-violet font-semibold tracking-[0.25em] uppercase mb-4 text-sm sm:text-base">
             {personalInfo.greeting}
           </p>
 
           {/* Name */}
           <motion.h1
-            className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-heading mb-5 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-7xl font-extrabold text-heading mb-5 leading-tight"
             initial={{ opacity: 0, rotateX: -30 }}
             animate={{ opacity: 1, rotateX: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
@@ -136,7 +136,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-[#7C3AED] text-white font-semibold border border-transparent hover:bg-[#6D28D9] hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#7C3AED]/20"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 min-h-[44px] w-full sm:w-auto rounded-xl bg-[#7C3AED] text-white font-semibold border border-transparent hover:bg-[#6D28D9] hover:-translate-y-1 hover:scale-105 active:scale-95 transition-all duration-300 shadow-lg shadow-[#7C3AED]/20"
             >
               View My Work
               <ArrowDown size={18} />
@@ -145,7 +145,7 @@ const Hero = () => {
             <a
               href="/assets/Bhuvan_S_Kumar_Resume_Final_Aligned.pdf"
               download
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-accent-violet/50 text-heading hover:bg-accent-violet/10 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3 min-h-[44px] w-full sm:w-auto rounded-xl border border-accent-violet/50 text-heading hover:bg-accent-violet/10 transition-all duration-300"
             >
               Download Resume
               <Download size={18} />
@@ -190,7 +190,7 @@ const Hero = () => {
             <img
               src="/assets/1790001840969.jpg"
               alt={`${personalInfo.fullName} - Profile`}
-              className="w-80 h-80 rounded-full object-cover"
+              className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full object-cover"
               onError={() => setImageError(true)}
             />
           )}
