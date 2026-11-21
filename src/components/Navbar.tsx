@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-4 py-3 lg:px-8">
         {/* Logo / name */}
-        <div className="text-xl sm:text-2xl font-bold text-foreground cursor-pointer max-w-[140px] truncate" onClick={() => scrollTo('home')}>
+        <div className="whitespace-nowrap text-base sm:text-xl font-bold text-foreground cursor-pointer" onClick={() => scrollTo('home')}>
           Bhuvan S Kumar
         </div>
         {/* Desktop links */}
